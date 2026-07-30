@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta Simplificada · Alexander Perez — Nettoyage</title>
+<meta name="description" content="Propuesta clara, sencilla y paso a paso para el crecimiento de Alexander Perez Nettoyage & Entretien en Ginebra.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F9F7;
+    --card: #FFFFFF;
+    --text: #131E18;
+    --text-muted: #4B5E52;
+    --text-light: #76887D;
+    --green: #1B6946;
+    --green-light: #E7F5EE;
+    --green-border: #C2E4D3;
+    --line: #E1EBE5;
+    --accent: #2C8860;
+    --shadow: 0 4px 20px rgba(19, 30, 24, 0.05);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  /* Header */
+  .badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    background: var(--green-light);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(32px, 5.5vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+    color: var(--text);
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--green);
+  }
+
+  .subtitle {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+
+  .meta-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 48px;
+  }
+  .meta-bar strong { color: var(--text); }
+
+  /* Section Title */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0 0 24px;
+  }
+
+  /* Main Concept Box */
+  .concept-box {
+    background: var(--green);
+    color: #FFFFFF;
+    padding: 32px;
+    border-radius: 20px;
+    margin-bottom: 48px;
+    box-shadow: 0 10px 30px rgba(27, 105, 70, 0.15);
+  }
+
+  .concept-box h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 22px;
+    margin: 0 0 12px;
+    color: #FFFFFF;
+  }
+
+  .concept-box p {
+    margin: 0;
+    font-size: 17px;
+    color: #E2F2EA;
+    line-height: 1.55;
+  }
+
+  .guarantee-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 16px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  /* Steps List */
+  .steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 56px;
+  }
+
+  .step-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 20px;
+    position: relative;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .step-card.featured {
+    border: 2px solid var(--green);
+    background: #FAFDFB;
+  }
+
+  .step-card:hover {
+    border-color: var(--green-border);
+  }
+
+  .step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--green);
+    background: var(--green-light);
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-content {
+    flex-grow: 1;
+  }
+
+  .step-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .step-content h3 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text);
+  }
+
+  .step-price-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--green);
+    background: var(--green-light);
+    padding: 4px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+
+  .step-content p {
+    margin: 0 0 12px;
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+
+  .step-content ul {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+
+  .step-content li {
+    margin-bottom: 6px;
+  }
+
+  /* Social Media Card Grid */
+  .social-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .social-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+
+  .social-card strong {
+    display: block;
+    font-size: 16px;
+    color: var(--green);
+    margin-bottom: 6px;
+  }
+
+  .social-card p {
+    font-size: 14.5px;
+    margin: 0;
+    color: var(--text-muted);
+  }
+
+  /* Itemized Pricing Table */
+  .itemized-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 56px;
+  }
+
+  .itemized-table th, .itemized-table td {
+    padding: 18px 22px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    font-size: 16px;
+  }
+
+  .itemized-table th {
+    background: var(--green-light);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--green);
+  }
+
+  .itemized-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .itemized-table td.price {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--green);
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  .tag-requested {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--green);
+    background: #D4EFE1;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-left: 8px;
+  }
+
+  /* Actions Box */
+  .actions-box {
+    background: var(--card);
+    border: 2px solid var(--green);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: var(--shadow);
+    margin-bottom: 48px;
+  }
+
+  .actions-box h2 {
+    color: var(--green);
+    margin-bottom: 16px;
+  }
+
+  .action-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 16.5px;
+  }
+
+  .action-item:last-child {
+    border-bottom: none;
+  }
+
+  .action-icon {
+    color: var(--green);
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  footer {
+    margin-top: 60px;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-light);
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 36px 16px 60px; }
+    .step-card { flex-direction: column; gap: 12px; padding: 20px; }
+    .meta-bar { flex-direction: column; gap: 8px; }
+    .social-grid { grid-template-columns: 1fr; }
+    .step-header-flex { flex-direction: column; gap: 6px; }
+    .itemized-table th, .itemized-table td { padding: 14px 16px; font-size: 14.5px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <span class="badge">Estrategia &amp; Propuesta de Trabajo</span>
+    <h1>Plan para ser la <em>Opción Nº 1</em> en la mente del cliente</h1>
+    <p class="subtitle">Un plan de trabajo directo y profesional para que, en cuanto alguien en Ginebra o Vaud necesite limpieza o mantenimiento, <strong>perez-nettoyage</strong> sea la primera opción que le venga a la cabeza y contrate fácilmente.</p>
+    
+    <div class="meta-bar">
+      <span>Empresa: <strong>perez-nettoyage</strong> (Alexander Perez)</span>
+      <span>Dominio: <strong>perez-nettoyage.ch</strong></span>
+      <span>Ubicación: <strong>Ginebra / Cologny</strong></span>
+    </div>
+  </header>
+
+  <!-- La Idea Principal -->
+  <section>
+    <div class="section-label">00. El Objetivo Central</div>
+    <div class="concept-box">
+      <h3>Ser la 1ª opción + Transformar visitas en clientes fáciles</h3>
+      <p>Cuando un cliente en Suiza busca limpieza, quiere dos cosas: <strong>encontrarte rápido</strong> y <strong>estar 100% seguro de que el trabajo saldrá bien</strong>. Este plan combina la garantía de tranquilidad total con una web tan sencilla que convertir a las visitas en clientes pagadores es facilísimo.</p>
+      
+      <div class="guarantee-tag">
+        ✓ Promesa clave: «État des lieux réussi, ou on revient» (Garantía de aprobación)
+      </div>
+    </div>
+
+    <!-- Impulso inicial / Vitamina de Clases y Directos -->
+    <div style="background: var(--green-light); border: 1.5px solid var(--green-border); padding: 24px; border-radius: 16px; margin-bottom: 48px;">
+      <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; color: var(--green); margin: 0 0 8px;">⚡ Ventaja Exclusiva: «Impulso Vitamina» para tu Web y Reseñas</h3>
+      <p style="margin: 0; font-size: 16px; color: var(--text-muted); line-height: 1.55;">
+        Para posicionar la marca rápidamente arriba en la mente del cliente y en Google, utilizaremos la web de <strong>perez-nettoyage</strong> y su ficha de Google como caso real en las <strong>clases prácticas y directos de mi escuela</strong>.
+        <br><br>
+        Esto atrae un <strong>flujo inicial inmediato de personas y reseñas</strong> que "vitamina" la presencia online desde el primer día. Al ganar esa autoridad inicial, Google te muestra primero y hace que los nuevos clientes en Ginebra te encuentren de forma muy fácil y natural.
+      </p>
+    </div>
+  </section>
+
+  <!-- El Plan Paso a Paso -->
+  <section>
+    <div class="section-label">El Plan en 4 Módulos (Precios Desglosados)</div>
+    <h2>Plan de Trabajo Módulo a Módulo:</h2>
+
+    <div class="steps-container">
+
+      <!-- Paso 2 (Web - Lo principal que pidieron) -->
+      <div class="step-card featured">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-header-flex">
+            <h3>Creación de la Web Sencilla <span class="tag-requested">Solicitado</span></h3>
+            <span class="step-price-badge">350 €</span>
+          </div>
+          <p>Una página profesional, limpia y súper rápida diseñada con el único fin de <strong>convertir visitas en clientes fáciles</strong>.</p>
+          <ul>
+            <li><strong>Mensaje claro y directo:</strong> El cliente ve tu marca como la opción Nº1 en 3 segundos gracias a la garantía visible.</li>
+            <li><strong>Prueba de confianza real:</strong> Fotos de "Antes / Después" y reseñas de Google integradas.</li>
+            <li><strong>Impulso en clases prácticas:</strong> Uso del proyecto en mis clases y directos para generar el flujo inicial de personas y reseñas ("Efecto Vitamina").</li>
+            <li><strong>Conversión fácil en 1 clic:</strong> Botón directo a WhatsApp siempre visible + presupuesto rápido en 3 clics.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Paso 1 (Google Profile) -->
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-header-flex">
+            <h3>Ficha de Google &amp; Reseñas Iniciales <span style="font-size:12px; color:var(--text-light); font-weight:normal;">(Opcional)</span></h3>
+            <span class="step-price-badge">90 €</span>
+          </div>
+          <p>Aparecer en el mapa de Google para conseguir llamadas locales inmediatas sin pagar publicidad.</p>
+          <ul>
+            <li><strong>Google Business Profile:</strong> Optimización de ficha, categorías y fotos.</li>
+            <li><strong>Flujo inicial con los alumnos:</strong> Las reseñas iniciales las realizaremos con los alumnos de la comunidad en los directos para tener un flujo rápido que te dé excelente imagen desde el primer día.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Paso 3: Plan de Creación de Marca a Largo Plazo -->
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-header-flex">
+            <h3>Plan de Creación de Marca a Largo Plazo <span style="font-size:12px; color:var(--text-light); font-weight:normal;">(Opcional)</span></h3>
+            <span class="step-price-badge">80 €</span>
+          </div>
+          <p>Estrategia integral para posicionar a perez-nettoyage en la mente del cliente mediante 4 pilares de marca:</p>
+          
+          <div class="social-grid">
+            <div class="social-card">
+              <strong>1. Construir una Creencia</strong>
+              <p>Inculcar en el cliente la certeza de que contratarte es sinónimo de cero riesgo de perder su fianza frente a la régie.</p>
+            </div>
+            <div class="social-card">
+              <strong>2. Diferenciación Radical</strong>
+              <p>Dejar de competir por precio y competir por tranquilidad garantizada (<em>«État des lieux réussi, ou on revient»</em>).</p>
+            </div>
+            <div class="social-card">
+              <strong>3. Crear una Subcategoría propia</strong>
+              <p>Posicionarse no como "otra empresa de limpieza", sino como la referencia en <em>Limpieza de Fin de Bail con Garantía Total</em>.</p>
+            </div>
+            <div class="social-card">
+              <strong>4. Ángulos de Comunicación</strong>
+              <p>Mensajes enfocados al dolor del cliente (fianza/régie), prueba visual (Antes/Después) y aval eco con productos biodegradables.</p>
+            </div>
+          </div>
+
+          <ul style="margin-top: 14px;">
+            <li><strong>Guía estratégica de marca:</strong> Pautas para proyectar una imagen fuerte y coherente a largo plazo.</li>
+            <li style="color:var(--text-muted); font-size:14px; margin-top:8px;"><em>*Aclaración: Existe la opción de que nosotros nos encarguemos de la gestión y publicación continuada de contenidos en el futuro, pero ese servicio recurrente no está contemplado en esta propuesta inicial.</em></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Paso 4: Mantenimiento Web -->
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-header-flex">
+            <h3>Mantenimiento &amp; Soporte Web <span style="font-size:12px; color:var(--text-light); font-weight:normal;">(Opcional)</span></h3>
+            <span class="step-price-badge">9 € / mes</span>
+          </div>
+          <p>Cuidado de la web, copias de seguridad, parches de seguridad y pequeño soporte de actualización.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Precios Desglosados (Sin precio conjunto) -->
+  <section>
+    <div class="section-label">Desglose de Servicios</div>
+    <h2>Tarifas Independientes por Servicio (€)</h2>
+    <p style="color: var(--text-muted); font-size: 16px; margin-bottom: 24px;">Precios económicos por cada módulo. Puedes elegir únicamente la Web o añadir cualquier módulo cuando quieras:</p>
+
+    <table class="itemized-table">
+      <thead>
+        <tr>
+          <th>Servicio / Módulo</th>
+          <th>Qué Incluye</th>
+          <th style="text-align:right;">Precio (€)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#FAFDFB;">
+          <td><strong>Creación Web Sencilla</strong> <span class="tag-requested">Solicitado</span></td>
+          <td>Diseño, desarrollo, botón WhatsApp, formulario 3 clics y garantía.</td>
+          <td class="price">350 €</td>
+        </tr>
+        <tr>
+          <td><strong>Ficha Google &amp; Reseñas Comunidad</strong></td>
+          <td>Ficha optimizada + primer lote de reseñas con la comunidad.</td>
+          <td class="price">90 €</td>
+        </tr>
+        <tr>
+          <td><strong>Plan de Creación de Marca a Largo Plazo</strong></td>
+          <td>Estrategia de marca, posicionamiento de confianza y guía de autoridad.</td>
+          <td class="price">80 €</td>
+        </tr>
+        <tr>
+          <td><strong>Mantenimiento Web Mensual</strong></td>
+          <td>Soporte técnico, backups y actualizaciones continuas.</td>
+          <td class="price">9 € / mes</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Qué hacemos ya mismo -->
+  <section>
+    <div class="actions-box">
+      <h2>¿Qué hacemos esta primera semana?</h2>
+      <ul class="action-list">
+        <li class="action-item">
+          <span class="action-icon">1.</span>
+          <div><strong>Fijar la frase de garantía:</strong> Definir el alcance exacto de la promesa para presupuestos y web.</div>
+        </li>
+        <li class="action-item">
+          <span class="action-icon">2.</span>
+          <div><strong>Publicar la nueva web (350 €):</strong> Lanzar la versión sencilla solicitada lista para recibir clientes.</div>
+        </li>
+        <li class="action-item">
+          <span class="action-icon">3.</span>
+          <div><strong>Añadir módulos opcionales:</strong> Activar Google Profile o Redes Sociales si Alexander lo solicita.</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>perez-nettoyage</strong> | Nettoyage, Entretien &amp; Peinture | Genève | <a href="https://perez-nettoyage.ch" style="color:var(--green); text-decoration:none;">perez-nettoyage.ch</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
